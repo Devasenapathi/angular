@@ -1,0 +1,11 @@
+
+mat-form-field, textarea{
+  width: 40%;
+}
+button{
+  align-items: center;
+  flex: 1 auto;
+  justify-content: center;
+}
+
+

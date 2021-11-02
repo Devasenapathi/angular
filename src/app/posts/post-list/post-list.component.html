@@ -1,0 +1,24 @@
+
+<mat-accordion multi="true" *ngIf="posts.length>0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+       {{ post.amountfrom }}
+    </mat-expansion-panel-header>
+    <p>{{ post.pan }}</p>
+    <p>{{ post.amount }}</p>
+    <p>{{ post.reference}}</p>
+    <p>{{ post.country }}</p>
+    <p>{{ post.state}} </p>
+    <p>{{ post.currency}} </p>
+    <p>{{ post.account}} </p>
+    <p>{{ post.mop}} </p>
+    <mat-action-row>
+      <a mat-raised-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+      <button mat-raised-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<p class="info-text mat-body-1" *ngIf="posts.length<=0">No post posted yet!</p>
+
+

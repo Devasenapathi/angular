@@ -1,0 +1,116 @@
+<mat-card>
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm">
+    <!--COUNTRY-->
+    <mat-form-field>
+      <mat-label>COUNTRY</mat-label>
+      <mat-select  [ngModel]="post?.country" #country="ngModel" name="country" (ngModelchange)="changeCountry()">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let country of countries" [value]="country.name">
+          {{country.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="country.invalid">Please choose an country</mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    <mat-form-field>
+      <mat-label>STATE</mat-label>
+        <mat-select [ngModel]="post?.state" #state="ngModel" name="state">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state.name">
+            {{state.name}}
+          </mat-option>
+          </mat-select>
+    </mat-form-field>
+
+    <!--CURRENCY-->
+    <mat-form-field>
+      <mat-label>CURRENCY</mat-label>
+        <mat-select [ngModel]="post?.currency" #currency="ngModel" name="currency">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let currency of currencies" [value]="currency.name">
+            {{currency.name}}
+          </mat-option>
+          </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    <!--Account-->
+    <mat-form-field>
+      <mat-label>ACCOUNT</mat-label>
+      <mat-select [ngModel]="post?.account" #account="ngModel" name="account">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let ac of accounts" [value]="ac.name">
+          {{ac.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="amount"
+      [ngModel]="post?.amount"
+      id="amount"
+      placeholder="AMOUNT"
+      #amount="ngModel">
+      <mat-error *ngIf="amount.invalid">please enter thr post Content</mat-error>
+    </mat-form-field>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="amountfrom"
+      [ngModel]="post?.amountfrom"
+      id="amountfrom"
+      placeholder="AMOUNT FROM"
+      #amountfrom="ngModel">
+      <mat-error *ngIf="amountfrom.invalid">please enter thr post Content</mat-error>
+    </mat-form-field>
+
+
+
+  <!--Mode of Payment-->
+  <mat-form-field>
+    <mat-label>PAYMENT METHOD</mat-label>
+      <mat-select [ngModel]="post?.mop" #mop="ngModel" name="mop">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pm of mops" [value]="pm.name">
+          {{pm.name}}
+        </mat-option>
+        </mat-select>
+  </mat-form-field>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+  <mat-form-field>
+    <input matInput
+    type="text"
+    name="reference"
+    [ngModel]="post?.reference"
+
+    placeholder="REFERENCE"
+    #reference="ngModel">
+    <mat-error *ngIf="reference.invalid">please enter thr post Title</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput
+    type="text"
+    name="pan"
+    [ngModel]="post?.pan"
+
+    placeholder="PAN NUMBER"
+    #pan="ngModel">
+    <mat-error *ngIf="pan.invalid">please enter thr post Content</mat-error>
+  </mat-form-field><br>
+
+    <button mat-raised-button color="accent" type="submit">Save post</button>
+  </form>
+</mat-card>
